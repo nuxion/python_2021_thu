@@ -32,3 +32,13 @@ $ python3 magic.py 20
     19
     alakazam
 """
+
+for i in range(1, 21):
+    if i%3 == 0 and i%5 == 0: 
+        print("abracadabraalakazam") 
+    elif i%3 == 0: 
+        print("abracadabra") 
+    elif i%5 == 0: 
+        print("Alakazam") 
+    else:
+        print(i) 
