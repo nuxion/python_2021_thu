@@ -32,13 +32,39 @@ $ python3 magic.py 20
     19
     alakazam
 """
+"""
+for i in range(1, self.limite):
+            if i%3 == 0 and i%5 == 0: 
+                print("abracadabraalakazam") 
+            elif i%3 == 0: 
+                print("abracadabra") 
+            elif i%5 == 0: 
+                print("Alakazam") 
+            else:
+                print(i) 
+"""
 
-for i in range(1, 21):
-    if i%3 == 0 and i%5 == 0: 
-        print("abracadabraalakazam") 
-    elif i%3 == 0: 
-        print("abracadabra") 
-    elif i%5 == 0: 
-        print("Alakazam") 
-    else:
-        print(i) 
+
+class Mago:
+
+    def __init__(self, limite=20):
+        self.limite = limite
+
+    def escribir(self):
+        pass
+        #f = open("resultado.txt", "a")
+        # f.write())  
+
+    def hacer_magia(self):
+        for i in range(1, self.limite):
+            if i%3 == 0 and i%5 == 0: 
+                print("abracadabraalakazam") 
+            elif i%3 == 0: 
+                print("abracadabra") 
+            elif i%5 == 0: 
+                print("Alakazam") 
+            else:
+                print(i) 
+
+merlin = Mago(20)
+merlin.hacer_magia()
