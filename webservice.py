@@ -71,18 +71,11 @@ def badRequestHandler(e):
     return response(request, status=400, reason=e.description)
 
 
-@app.route(
-    "/student",
-    methods=["GET", "POST"],
-    defaults={"studentID": None}
-)
-@app.route(
-    "/student/<int:studentID>",
-    methods=["GET", "PUT", "DELETE"]
-)
+@app.route( "/student", methods=["GET","POST"],defaults={"studentID": None})
+@app.route( "/student/<int:studentID>", methods=["GET", "PUT", "DELETE"])
 def student(studentID):
     if request.method == "POST":
-        student = getStudentFromRequest(request)
+        student = get_student_from_request(request)
         try:
             newID = max(students.keys()) + 1
         except ValueError:
@@ -92,14 +85,10 @@ def student(studentID):
     
     elif request.method == "GET":
         if studentID is None:
-            return response(
-                request,
-                students=[{"id": k, **v} for k, v in students.items()]
-            )
-        return response(
-            request,
-            student=getStudentOr404(studentID)
-        )
+            _students = [{"id": k, **v} for k, v in students.items()]
+            return response(request,students=_students)
+
+        return response(request, student=getStudentOr404(studentID))
     
     elif request.method == "PUT":
         student = getStudentOr404(studentID)

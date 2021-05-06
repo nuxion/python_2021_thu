@@ -1,5 +1,5 @@
 # clase 6
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -32,6 +32,10 @@ def edit_alumnos(alumno):
                 return jsonify(alumnos), 200
         
         return jsonify({"msg": "not found"}), 404 # deberia ser 204
+
+@app.route('/interfaces', methods=["GET"])
+def interfaces():
+    return render_template("interfaz.html", data="world")
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
